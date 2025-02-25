@@ -2,8 +2,7 @@ import { getAnimeTop } from '@/lib/anime-service'
 import React from 'react'
 import AnimeCard from './anime-card';
 import { Anime } from '@/types/anime-types';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Link from 'next/link';
 
 const AnimeResults = async () => {
