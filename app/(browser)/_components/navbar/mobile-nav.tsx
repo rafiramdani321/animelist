@@ -34,7 +34,7 @@ const MobileNav = ({ navitems } : NavItemProps) => {
     };
 
   return (
-    <ul className='space-y-20 relative z-50 text-center text-xl text-primary cursor-pointer'>
+    <ul className='space-y-20 relative z-50 text-center text-xl text-primary cursor-pointer w-full'>
       {navitems.map(item => {
         const isOpen = activeNavItem === item.id || clickedNavItem === item.id;
         return (

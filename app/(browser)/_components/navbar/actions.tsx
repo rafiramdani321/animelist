@@ -78,7 +78,7 @@ const Actions = () => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className='fixed left-0 w-full h-screen mt-3 backdrop-blur-lg bg-background/30 z-50'
           >
-            <div className='flex justify-center items-center h-screen'>
+            <div className='flex justify-center items-center h-screen w-full'>
               <MobileNav navitems={navitems} />
             </div>
           </motion.div>

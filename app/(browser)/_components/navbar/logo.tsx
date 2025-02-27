@@ -4,16 +4,15 @@ import React from 'react'
 const Logo = () => {
   return (
     <div className="relative flex items-center w-fit">
-      {/* Gambar
       <div className="">
         <Image
           alt="logo"
           src={"/images/icon.png"}
-          height={80}
-          width={80}
+          height={40}
+          width={40}
           className="object-cover"
         />
-      </div> */}
+      </div>
 
       {/* Teks di atas gambar */}
       <h1 className="text-3xl font-extrabold italic text-white drop-shadow-md">
