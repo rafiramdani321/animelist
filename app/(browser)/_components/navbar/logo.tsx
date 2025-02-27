@@ -14,7 +14,6 @@ const Logo = () => {
         />
       </div>
 
-      {/* Teks di atas gambar */}
       <h1 className="text-3xl font-extrabold italic text-white drop-shadow-md">
         Anime<span className="text-secondary">List</span>
       </h1>
