@@ -6,6 +6,11 @@ body {
   font-family: var(--font-inter);
 }
 
+.bg-image {
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -15,6 +20,7 @@ body {
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --background-secondary: 0 0 12;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -42,15 +48,16 @@ body {
   }
 
   .dark {
-    --background: 223 16 8;
+    --background: 80 10 6;
+    --background-secondary: 0 0 12;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 222 100 93;
+    --primary: 165, 82, 54;
     --primary-foreground: 221 22 74;
-    --secondary: 6 182 212;
+    --secondary: 165 82 54;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
@@ -85,6 +92,7 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

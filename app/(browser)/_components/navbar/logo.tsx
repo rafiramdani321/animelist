@@ -1,9 +1,24 @@
+import Image from 'next/image'
 import React from 'react'
 
 const Logo = () => {
   return (
-    <div>
-      <h1 className='text-3xl font-extrabold text-primary'>AnimeList</h1>
+    <div className="relative flex items-center w-fit">
+      {/* Gambar
+      <div className="">
+        <Image
+          alt="logo"
+          src={"/images/icon.png"}
+          height={80}
+          width={80}
+          className="object-cover"
+        />
+      </div> */}
+
+      {/* Teks di atas gambar */}
+      <h1 className="text-3xl font-extrabold italic text-white drop-shadow-md">
+        Anime<span className="text-secondary">List</span>
+      </h1>
     </div>
   )
 }

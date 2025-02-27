@@ -1,3 +1,5 @@
+"use client";
+
 import { Anime } from '@/types/anime-types';
 import Image from 'next/image';
 import React from 'react'

@@ -44,7 +44,7 @@ const Actions = () => {
   ];
 
   return (
-    <div>
+    <div className='z-50'>
       {/* Mobile Menu Button */}
       <button 
         className='text-primary hover:text-primary-foreground lg:hidden' 

@@ -11,6 +11,7 @@ const config: Config = {
   	extend: {
   		colors: {
   			background: 'hsl(var(--background))',
+				backgroundSecondary: 'hsl(var(--background-secondary))',
   			foreground: 'hsl(var(--foreground))',
 				bgsecondary: '#1f2937',
 				bgsecodaryHover: '#374151',
