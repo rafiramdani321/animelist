@@ -4,11 +4,12 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 export async function getTopAnime(params: Partial<AnimeTopParams> = {}) {
   try {
+    // Filter parameter yang nilainya `undefined`
     const filteredParams = Object.fromEntries(
       Object.entries(params).filter(([, v]) => v !== undefined)
-    );
+    ) as Record<string, string>; // ✅ Fix: Gunakan Record<string, string>
 
-    const queryString = new URLSearchParams(filteredParams as any).toString();
+    const queryString = new URLSearchParams(filteredParams).toString();
     const response = await fetch(`${SITE_URL}/api/anime/top?${queryString}`, {
       cache: "no-store",
     });
@@ -26,9 +27,9 @@ export async function getAnimeSeasonNow(
   try {
     const filteredParams = Object.fromEntries(
       Object.entries(params).filter(([, v]) => v !== undefined)
-    );
+    ) as Record<string, string>; // ✅ Fix: Gunakan Record<string, string>
 
-    const queryString = new URLSearchParams(filteredParams as any).toString();
+    const queryString = new URLSearchParams(filteredParams).toString();
     const response = await fetch(
       `${SITE_URL}/api/anime/season-now?${queryString}`,
       {
@@ -38,7 +39,7 @@ export async function getAnimeSeasonNow(
 
     return response.json();
   } catch (error) {
-    console.error("Error fetching top anime:", error);
+    console.error("Error fetching anime season now:", error);
     return { data: [], pagination: {} };
   }
 }
