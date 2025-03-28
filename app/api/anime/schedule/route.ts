@@ -7,12 +7,9 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url.toString());
 
     const queryString = searchParams.toString();
-    const response = await fetch(
-      `${JIKAN_API_URL}/seasons/now?${queryString}`,
-      {
-        next: { revalidate: 60 },
-      }
-    );
+    const response = await fetch(`${JIKAN_API_URL}/schedules?${queryString}`, {
+      next: { revalidate: 60 },
+    });
 
     if (!response.ok) {
       throw new Error(`API error: ${response.statusText}`);
@@ -21,7 +18,7 @@ export async function GET(req: Request) {
     const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {
-    console.error("Error fetching anime season now:", error);
+    console.error("Error fetching schedule anime:", error);
     return NextResponse.json({ data: [], pagination: {} });
   }
 }

@@ -17,12 +17,12 @@ export type AnimeTopParams = {
 };
 
 export interface AnimeSeasonNowParams {
-  filter?: "tv" | "movie" | "ova" | "special" | "ona" | "music"; // Jenis anime
-  sfw?: boolean; // Filter Safe For Work
-  unapproved?: boolean; // Menyertakan anime yang belum disetujui
-  continuing?: boolean; // Menyertakan anime yang berlanjut dari musim sebelumnya
-  page?: number; // Halaman hasil pencarian
-  limit?: number; // Jumlah hasil per halaman
+  filter?: "tv" | "movie" | "ova" | "special" | "ona" | "music";
+  sfw?: boolean;
+  unapproved?: boolean;
+  continuing?: boolean;
+  page?: number;
+  limit?: number;
 }
 
 export interface Anime {
@@ -70,6 +70,7 @@ export interface Anime {
 
 export interface AnimeScheduleParams {
   limit?: number;
+  page?: number;
   filter?:
     | "monday"
     | "tuesday"
