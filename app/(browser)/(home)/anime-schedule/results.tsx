@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 
 import { Anime } from "@/types/anime-types";
 import AnimeCard from "../_components/anime-card";
