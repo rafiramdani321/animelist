@@ -57,10 +57,7 @@ export async function getAnimeSchedules(
 
     const queryString = new URLSearchParams(filteredParams).toString();
     const response = await fetch(
-      `${SITE_URL}/api/anime/schedule?${queryString}`,
-      {
-        cache: "no-store",
-      }
+      `${SITE_URL}/api/anime/schedule?${queryString}`
     );
 
     return response.json();

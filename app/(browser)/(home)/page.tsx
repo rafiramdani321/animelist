@@ -21,6 +21,9 @@ export default function Page() {
           <PageAnimeSchedule />
         </Suspense>
       </div>
+      <div>
+        <h1>Anime Review</h1>
+      </div>
     </div>
   );
 }

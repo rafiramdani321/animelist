@@ -10,5 +10,6 @@ export default async function PageAnimeSchedule() {
     filter: dayLowerCase,
     limit: 6,
   });
+
   return <AnimeScheduleResults animes={data} />;
 }
