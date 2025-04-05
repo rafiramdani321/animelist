@@ -82,3 +82,9 @@ export interface AnimeScheduleParams {
     | "unknown"
     | "other";
 }
+
+export interface AnimeReviewsParams {
+  page?: number;
+  preliminary?: boolean;
+  spoilers?: boolean;
+}

@@ -4,6 +4,7 @@ import PageAnimeSeasonNow from "./anime-season-now";
 import { ResultsAnimeSkeleton } from "./anime-season-now/results";
 import PageAnimeTopAiring from "./anime-top-airing";
 import PageAnimeSchedule from "./anime-schedule";
+import PageAnimeReview from "./anime-review";
 
 export default function Page() {
   return (
@@ -16,13 +17,13 @@ export default function Page() {
           <PageAnimeTopAiring />
         </Suspense>
       </div>
-      <div className="px-4 md:px-10 xl:px-64 mt-8 bg-backgroundSecondary">
+      <div className="px-1 md:px-10 xl:px-64 mt-8 bg-backgroundSecondary">
         <Suspense fallback={<ResultsAnimeSkeleton extraClass="py-10" />}>
           <PageAnimeSchedule />
         </Suspense>
       </div>
-      <div>
-        <h1>Anime Review</h1>
+      <div className="px-4 mt-28 md:px-10 xl:px-64">
+        <PageAnimeReview />
       </div>
     </div>
   );

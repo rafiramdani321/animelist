@@ -1,4 +1,5 @@
 import {
+  AnimeReviewsParams,
   AnimeScheduleParams,
   AnimeSeasonNowParams,
   AnimeTopParams,
@@ -57,12 +58,40 @@ export async function getAnimeSchedules(
 
     const queryString = new URLSearchParams(filteredParams).toString();
     const response = await fetch(
-      `${SITE_URL}/api/anime/schedule?${queryString}`
+      `${SITE_URL}/api/anime/schedule?${queryString}`,
+      {
+        cache: "no-store",
+      }
     );
 
     return response.json();
   } catch (error) {
     console.error("Error fetching anime schedule:", error);
+    return { data: [], pagination: {} };
+  }
+}
+
+export async function getAnimeReviews(
+  params: Partial<AnimeReviewsParams> = {}
+) {
+  try {
+    const filteredParams = Object.fromEntries(
+      Object.entries(params)
+        .filter(([, v]) => v !== undefined)
+        .map(([k, v]) => [k, String(v)])
+    );
+
+    const queryString = new URLSearchParams(filteredParams).toString();
+    const response = await fetch(
+      `${SITE_URL}/api/anime/review?${queryString}`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching anime reviews:", error);
     return { data: [], pagination: {} };
   }
 }
