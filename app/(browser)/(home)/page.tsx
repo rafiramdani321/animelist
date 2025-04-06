@@ -5,6 +5,8 @@ import { ResultsAnimeSkeleton } from "./anime-season-now/results";
 import PageAnimeTopAiring from "./anime-top-airing";
 import PageAnimeSchedule from "./anime-schedule";
 import PageAnimeReview from "./anime-review";
+import PageAnimeRecommendations from "./anime-recommendation";
+import Footer from "../_components/footer";
 
 export default function Page() {
   return (
@@ -24,6 +26,12 @@ export default function Page() {
       </div>
       <div className="px-4 mt-28 md:px-10 xl:px-64">
         <PageAnimeReview />
+      </div>
+      <div className="px-4 mt-28 md:px-10 xl:px-64">
+        <PageAnimeRecommendations />
+      </div>
+      <div className="mt-28 bg-backgroundSecondary">
+        <Footer />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ export const AnimeReviewResults = ({ data }: AnimeReview) => {
     <div>
       <div className="relative group px-2">
         <h2 className="uppercase italic text-base md:text-lg xl:text-xl text-primary font-bold relative z-10">
-          anime reviews
+          latest anime reviews
         </h2>
         <Link
           href={"/#"}
@@ -26,10 +26,7 @@ export const AnimeReviewResults = ({ data }: AnimeReview) => {
 
       <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-x-3">
         {data.map((result) => (
-          <div
-            className="border-backgroundSecondary border-t border-b mt-4"
-            key={result.mal_id}
-          >
+          <div className="border-t border-b mt-4" key={result.mal_id}>
             <div className="py-3">
               <div className="flex gap-x-2">
                 <Image

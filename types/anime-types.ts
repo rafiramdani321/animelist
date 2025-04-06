@@ -89,6 +89,10 @@ export interface AnimeReviewsParams {
   spoilers?: boolean;
 }
 
+export interface AnimeRecommendationParams {
+  page?: number;
+}
+
 export interface AnimeReview {
   data: {
     mal_id: number;
@@ -136,6 +140,35 @@ export interface AnimeReview {
           image_url: string;
         };
       };
+    };
+  }[];
+}
+
+export interface AnimeRecommendation {
+  data: {
+    mal_id: string;
+    entry: {
+      mal_id: string;
+      url: string;
+      images: {
+        jpg: {
+          image_url: string;
+          small_image_url: string;
+          large_image_url: string;
+        };
+        webp: {
+          image_url: string;
+          small_image_url: string;
+          large_image_url: string;
+        };
+      };
+      title: string;
+    }[];
+    content: string;
+    date: string;
+    user: {
+      url: string;
+      username: string;
     };
   }[];
 }
