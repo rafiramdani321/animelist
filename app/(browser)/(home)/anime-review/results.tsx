@@ -4,58 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 
-interface AnimeReviewProps {
-  data: {
-    mal_id: number;
-    url: string;
-    reactions: {
-      overall: number;
-      nice: number;
-      love_it: number;
-      funny: number;
-      confusing: number;
-      informative: number;
-      well_written: number;
-      creative: number;
-    };
-    date: string;
-    review: string;
-    score: number;
-    tags: [];
+import { AnimeReview } from "@/types/anime-types";
 
-    entry: {
-      mal_id: number;
-      url: string;
-      images: {
-        jpg: {
-          image_url: string;
-          small_image_url: string;
-          large_image_url: string;
-        };
-        webp: {
-          image_url: string;
-          small_image_url: string;
-          large_image_url: string;
-        };
-      };
-      title: string;
-    };
-    user: {
-      url: string;
-      username: string;
-      images: {
-        jpg: {
-          image_url: string;
-        };
-        webp: {
-          image_url: string;
-        };
-      };
-    };
-  }[];
-}
-
-export const AnimeReviewResults = ({ data }: AnimeReviewProps) => {
+export const AnimeReviewResults = ({ data }: AnimeReview) => {
   return (
     <div>
       <div className="relative group px-2">
@@ -73,54 +24,56 @@ export const AnimeReviewResults = ({ data }: AnimeReviewProps) => {
         </h1>
       </div>
 
-      {data.map((result) => (
-        <div
-          className="border-backgroundSecondary border-t border-b mt-4"
-          key={result.mal_id}
-        >
-          <div className="py-3">
-            <div className="flex gap-x-2">
-              <Image
-                src={result.entry.images.webp.large_image_url}
-                alt="Image anime"
-                width={70}
-                height={110}
-                className="object-cover shadow-lg shadow-backgroundSecondary"
-              />
-              <div>
-                <h2 className="text-secondary text-xs font-semibold tracking-tight">
-                  {result.entry.title}
-                </h2>
-                <p className="line-clamp-4 text-[11px] text-primary tracking-tight mt-2">
-                  {result.review}
-                </p>
-                <div className="flex justify-between mt-2">
-                  <Link
-                    href={"/#"}
-                    className="text-[11px] text-primary-foreground hover:text-secondary tracking-tight underline"
-                  >
-                    view more
-                  </Link>
-                  <div className="flex gap-x-1">
-                    <h2 className="text-[11px] text-primary-foreground">
-                      {formatDistanceToNow(new Date(result.date), {
-                        addSuffix: true,
-                      }).replace(/^about\s/, "")}{" "}
-                      By
-                    </h2>
+      <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-x-3">
+        {data.map((result) => (
+          <div
+            className="border-backgroundSecondary border-t border-b mt-4"
+            key={result.mal_id}
+          >
+            <div className="py-3">
+              <div className="flex gap-x-2">
+                <Image
+                  src={result.entry.images.webp.large_image_url}
+                  alt="Image anime"
+                  width={70}
+                  height={110}
+                  className="object-cover shadow-lg shadow-backgroundSecondary"
+                />
+                <div>
+                  <h2 className="text-secondary text-xs font-semibold tracking-tight">
+                    {result.entry.title}
+                  </h2>
+                  <p className="line-clamp-4 text-[11px] text-primary tracking-tight mt-2">
+                    {result.review}
+                  </p>
+                  <div className="flex justify-between mt-2">
                     <Link
                       href={"/#"}
-                      className="text-[11px] text-secondary font-semibold hover:underline"
+                      className="text-[11px] text-primary-foreground hover:text-secondary tracking-tight underline"
                     >
-                      {result.user.username}
+                      view more
                     </Link>
+                    <div className="flex gap-x-1">
+                      <h2 className="text-[11px] text-primary-foreground">
+                        {formatDistanceToNow(new Date(result.date), {
+                          addSuffix: true,
+                        }).replace(/^about\s/, "")}{" "}
+                        By
+                      </h2>
+                      <Link
+                        href={"/#"}
+                        className="text-[11px] text-secondary font-semibold hover:underline"
+                      >
+                        {result.user.username}
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

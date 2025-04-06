@@ -80,7 +80,7 @@ const Actions = () => {
             animate={{ y: "0%", opacity: 1 }}
             exit={{ y: "-100%", opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed left-0 w-full h-screen mt-3 backdrop-blur-lg bg-background/30 z-50"
+            className="fixed left-0 w-full h-screen mt-3 backdrop-blur-md bg-background/30 z-50"
           >
             <div className="flex justify-center items-center h-screen w-full">
               <MobileNav navitems={navitems} />

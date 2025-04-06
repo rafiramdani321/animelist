@@ -88,3 +88,54 @@ export interface AnimeReviewsParams {
   preliminary?: boolean;
   spoilers?: boolean;
 }
+
+export interface AnimeReview {
+  data: {
+    mal_id: number;
+    url: string;
+    reactions: {
+      overall: number;
+      nice: number;
+      love_it: number;
+      funny: number;
+      confusing: number;
+      informative: number;
+      well_written: number;
+      creative: number;
+    };
+    date: string;
+    review: string;
+    score: number;
+    tags: [];
+
+    entry: {
+      mal_id: number;
+      url: string;
+      images: {
+        jpg: {
+          image_url: string;
+          small_image_url: string;
+          large_image_url: string;
+        };
+        webp: {
+          image_url: string;
+          small_image_url: string;
+          large_image_url: string;
+        };
+      };
+      title: string;
+    };
+    user: {
+      url: string;
+      username: string;
+      images: {
+        jpg: {
+          image_url: string;
+        };
+        webp: {
+          image_url: string;
+        };
+      };
+    };
+  }[];
+}
