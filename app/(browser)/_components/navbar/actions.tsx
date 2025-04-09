@@ -6,9 +6,11 @@ import { Menu, X } from "lucide-react";
 import DesktopNav from "./desktop-nav";
 import { motion, AnimatePresence } from "framer-motion";
 import MobileNav from "./mobile-nav";
+import { useNavbar } from "@/store/use-navbar";
 
 const Actions = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const { isOpen, onClick } = useNavbar((state) => state);
 
   const navitems = [
     {
@@ -48,7 +50,7 @@ const Actions = () => {
       {/* Mobile Menu Button */}
       <button
         className="text-primary hover:text-primary-foreground lg:hidden"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        onClick={onClick}
       >
         <motion.div
           key={String(isMobileMenuOpen)}
@@ -59,11 +61,7 @@ const Actions = () => {
             scale: { type: "spring" },
           }}
         >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </motion.div>
       </button>
 
@@ -74,7 +72,7 @@ const Actions = () => {
 
       {/* Mobile Navigation */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isOpen && (
           <motion.div
             initial={{ y: "-100%", opacity: 0 }}
             animate={{ y: "0%", opacity: 1 }}
