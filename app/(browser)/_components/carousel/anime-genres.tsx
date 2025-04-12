@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface animeGenresProps {
@@ -11,13 +12,13 @@ interface animeGenresProps {
 
 const AnimeGenres = ({ genres }: animeGenresProps) => {
   return (
-    <div className="flex mt-4 gap-x-2 xl:gap-x-3">
+    <div className="flex mt-2 gap-x-2">
       {genres.map((result) => (
         <div
-          className="border-2 self-center border-secondary/50 text-primary text-[11px] md:text-sm rounded-full cursor-pointer hover:bg-secondary/50 hover:border-secondary"
+          className="text-secondary uppercase font-bold tracking-tight text-[10px] md:text-sm cursor-pointer hover:underline"
           key={result.mal_id}
         >
-          <h4 className="py-1 px-2">{result.name}</h4>
+          <Link href={"/#"}>{result.name}</Link>
         </div>
       ))}
     </div>

@@ -40,10 +40,11 @@ const CarouselCard = ({ animes }: CarouselCardProps) => {
       <CarouselContent>
         {animes.data.map((result) => (
           <CarouselItem key={result.mal_id}>
-            <div className="w-full h-full relative pt-8 pb-12 px-4 md:px-10 xl:px-56 z-10 mt-11">
+            <div className="w-full h-full relative pb-12 px-2 md:px-10 xl:px-56 z-10 mt-9 md:mt-12 xl:mt-14">
               <div className="flex">
-                <div className="w-[180px] md:w-[250px] xl:w-[300px] flex-shrink-0 relative">
-                  <div className="shadow-xl rounded-md border shadow-background">
+                <div className="w-[130px] md:w-[250px] xl:w-[300px] flex-shrink-0 relative">
+                  <div className="shadow-xl border shadow-background relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-black/90 to-transparent" />
                     <Image
                       alt="test"
                       src={result.images.webp.large_image_url}

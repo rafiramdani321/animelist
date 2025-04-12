@@ -54,26 +54,24 @@ const AnimeHeader = ({
   const limitedGenres = genres?.slice(0, 3);
   return (
     <>
-      <div className="absolute left-[9rem] md:left-[14rem] xl:left-[30rem] mt-4 line-clamp-1 bg-secondary/50 px-3 uppercase shadow-xl shadow-background">
-        <h1 className="text-sm md:text-xl xl:text-3xl tracking-wide font-extrabold">
+      <div className="absolute w-fit left-[1rem] md:left-[14rem] xl:left-[30rem] mt-2.5 bg-secondary/50 px-3 uppercase shadow-xl shadow-background mr-2">
+        <h1 className="text-xs md:text-lg xl:text-3xl tracking-wide font-extrabold line-clamp-1">
           {displayTitle}
         </h1>
       </div>
-      <div className="mt-[3.5rem] md:mt-[4.5rem] xl:mt-20 ml-7">
-        <div className="flex mb-3 gap-x-1 line-clamp-1 xl:gap-x-3 text-[11px] md:text-[11px] xl:text-sm font-semibold tracking-tight">
+      <div className="mt-[2.5rem] md:mt-[4.5rem] xl:mt-20 ml-3">
+        <div className="flex mb-2 gap-x-1 xl:gap-x-3 text-[11px] md:text-[11px] xl:text-sm font-semibold tracking-tight">
           <h4 className="uppercase italic text-secondary">{status}</h4>
           <span>-</span>
           <h4 className="uppercase text-primary italic">{type}</h4>
-          <span>-</span>
-          <h4 className="text-primary-foreground">{episodes} Episodes</h4>
         </div>
 
-        <h3 className="uppercase text-primary-foreground italic font-semibold text-sm md:text-base">
+        <h3 className="uppercase text-primary-foreground italic font-semibold text-xs md:text-base">
           Description
         </h3>
 
-        <div className="w-[250px] md:w-full">
-          <p className="text-primary font-normal text-xs md:text-sm xl:text-base line-clamp-5">
+        <div className="w-full md:w-full">
+          <p className="text-primary font-light text-[11px] md:text-sm xl:text-base line-clamp-5">
             {synopsis}
           </p>
         </div>

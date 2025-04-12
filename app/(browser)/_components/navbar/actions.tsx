@@ -61,7 +61,7 @@ const Actions = () => {
             scale: { type: "spring" },
           }}
         >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </motion.div>
       </button>
 

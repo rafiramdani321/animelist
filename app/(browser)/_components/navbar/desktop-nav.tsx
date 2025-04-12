@@ -99,7 +99,7 @@ const DesktopNav = ({ navitems }: NavItemProps) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="absolute top-[1.3rem] left-0 bg-backgroundSecondary shadow-secondary/40 shadow-sm rounded-md py-2 min-w-[200px] z-50 mt-2 nav-dropdown"
+                  className="absolute top-[1.3rem] left-0 bg-backgroundSecondary rounded-sm drop-shadow-lg py-2 min-w-[200px] z-50 mt-2 nav-dropdown"
                 >
                   {item.subNavItem?.map((subItem) => {
                     const isCurrentSubItem = pathname === subItem.href;

@@ -37,21 +37,24 @@ export const AnimeReviewResults = ({ data }: AnimeReview) => {
                   className="object-cover shadow-lg shadow-backgroundSecondary"
                 />
                 <div>
-                  <h2 className="text-secondary text-xs font-semibold tracking-tight">
+                  <Link
+                    href={result.entry.url}
+                    className="text-secondary text-xs md:text-sm font-semibold tracking-tight line-clamp-1 hover:underline"
+                  >
                     {result.entry.title}
-                  </h2>
-                  <p className="line-clamp-4 text-[11px] text-primary tracking-tight mt-2">
+                  </Link>
+                  <p className="line-clamp-4 text-[11px] md:text-xs text-primary font-light mt-1.5">
                     {result.review}
                   </p>
-                  <div className="flex justify-between mt-2">
+                  <div className="flex justify-between mt-4">
                     <Link
                       href={"/#"}
-                      className="text-[11px] text-primary-foreground hover:text-secondary tracking-tight underline"
+                      className="text-[11px] md:text-xs text-primary-foreground hover:text-secondary tracking-tight underline"
                     >
                       view more
                     </Link>
                     <div className="flex gap-x-1">
-                      <h2 className="text-[11px] text-primary-foreground">
+                      <h2 className="text-[11px] md:text-xs text-primary-foreground">
                         {formatDistanceToNow(new Date(result.date), {
                           addSuffix: true,
                         }).replace(/^about\s/, "")}{" "}

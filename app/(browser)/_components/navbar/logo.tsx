@@ -19,7 +19,7 @@ const Logo = () => {
       <Link
         onClick={handleClick}
         href={"/"}
-        className="text-3xl font-extrabold italic text-white drop-shadow-md"
+        className="text-2xl font-extrabold italic text-white drop-shadow-md"
       >
         Anime<span className="text-secondary">List</span>
       </Link>
