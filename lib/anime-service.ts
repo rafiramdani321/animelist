@@ -121,3 +121,16 @@ export async function getAnimeRecommendations(
     return { data: [], pagination: {} };
   }
 }
+
+export async function getAnimeFullById(id: number) {
+  try {
+    const response = await fetch(`${SITE_URL}/api/anime/${id}/full`, {
+      cache: "no-store",
+    });
+
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching anime by id:", error);
+    return { data: [], pagination: {} };
+  }
+}

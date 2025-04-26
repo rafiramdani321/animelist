@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-
 import { Menu, X } from "lucide-react";
-import DesktopNav from "./desktop-nav";
 import { motion, AnimatePresence } from "framer-motion";
-import MobileNav from "./mobile-nav";
+
 import { useNavbar } from "@/store/use-navbar";
+import DesktopNav from "./desktop-nav";
+import MobileNav from "./mobile-nav";
 
 const Actions = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);

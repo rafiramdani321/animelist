@@ -3,10 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
-import { AnimeRecommendation } from "@/types/anime-types";
-import { div } from "framer-motion/client";
 
-export const AnimeRecommendationResults = ({ data }: AnimeRecommendation) => {
+import { AnimeRecommendationProps } from "@/types/anime-types";
+
+interface AnimeRecommendationResultsProps {
+  data: AnimeRecommendationProps[];
+}
+
+export const AnimeRecommendationResults = ({
+  data,
+}: AnimeRecommendationResultsProps) => {
   return (
     <div>
       <div className="relative group px-2">

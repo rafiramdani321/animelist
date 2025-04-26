@@ -4,24 +4,35 @@ import React from "react";
 import Image from "next/image";
 import AutoPlay from "embla-carousel-autoplay";
 
-import { Anime } from "@/types/anime-types";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { AnimeFullProps } from "@/types/anime-types";
 import AnimeHeader, { AnimeHeaderSkeleton } from "./anime-header";
 import AnimeTrailer from "./anime-trailer";
 import BackgroundImage from "./background-image";
-import { Skeleton } from "@/components/ui/skeleton";
 
 interface CarouselCardProps {
-  animes: {
-    data: Anime[];
-  };
+  data: Pick<
+    AnimeFullProps,
+    | "mal_id"
+    | "images"
+    | "title"
+    | "title_english"
+    | "title_japanese"
+    | "synopsis"
+    | "status"
+    | "type"
+    | "episodes"
+    | "genres"
+    | "trailer"
+  >[];
 }
 
-const CarouselCard = ({ animes }: CarouselCardProps) => {
+const CarouselCard = ({ data }: CarouselCardProps) => {
   const plugin = React.useRef(
     AutoPlay({
       delay: 5000,
@@ -29,7 +40,7 @@ const CarouselCard = ({ animes }: CarouselCardProps) => {
     })
   );
 
-  if (!animes || !animes.data || animes.data.length === 0) return;
+  if (!data || data.length === 0) return;
 
   return (
     <Carousel
@@ -38,7 +49,7 @@ const CarouselCard = ({ animes }: CarouselCardProps) => {
       onMouseLeave={() => plugin.current.play()}
     >
       <CarouselContent>
-        {animes.data.map((result) => (
+        {data.map((result) => (
           <CarouselItem key={result.mal_id}>
             <div className="w-full h-full relative pb-12 px-2 md:px-10 xl:px-56 z-10 mt-9 md:mt-12 xl:mt-14">
               <div className="flex">
@@ -61,7 +72,6 @@ const CarouselCard = ({ animes }: CarouselCardProps) => {
                   synopsis={result.synopsis}
                   status={result.status}
                   type={result.type}
-                  episodes={result.episodes}
                   genres={result.genres}
                   trailer={result.trailer}
                 />

@@ -8,34 +8,19 @@ import NavigationButtons, {
   NavigationButtonsSkeleton,
 } from "./navigation-buttons";
 import AnimeTrailer from "./anime-trailer";
+import { AnimeFullProps } from "@/types/anime-types";
 
-interface headerProps {
-  title: string;
-  title_english: string;
-  title_japanese: string;
-  synopsis: string;
-  status: string;
-  type: string;
-  episodes: number;
-  genres: {
-    mal_id: number;
-    name: string;
-    type: string;
-    url: string;
-  }[];
-  trailer: {
-    youtube_id: string;
-    url: string;
-    embed_url: string;
-    images: {
-      image_url: string;
-      small_image_url: string;
-      medium_image_url: string;
-      large_image_url: string;
-      maximum_image_url: string;
-    };
-  };
-}
+type AnimeHeaderCarouselProps = Pick<
+  AnimeFullProps,
+  | "title"
+  | "title_japanese"
+  | "title_english"
+  | "synopsis"
+  | "status"
+  | "type"
+  | "genres"
+  | "trailer"
+>;
 
 const AnimeHeader = ({
   title,
@@ -44,10 +29,9 @@ const AnimeHeader = ({
   synopsis,
   status,
   type,
-  episodes,
   genres,
   trailer,
-}: headerProps) => {
+}: AnimeHeaderCarouselProps) => {
   const displayTitle =
     title_english?.trim() || title?.trim() || title_japanese?.trim() || "-";
 
@@ -76,7 +60,7 @@ const AnimeHeader = ({
           </p>
         </div>
 
-        <AnimeGenres genres={limitedGenres} />
+        <AnimeGenres data={limitedGenres} />
         <div className="w-full flex justify-between gap-x-4">
           <NavigationButtons />
           <div className="hidden xl:block mt-10">

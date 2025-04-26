@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronRight } from "lucide-react";
 import React from "react";
+
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const NavigationButtons = () => {
   return (

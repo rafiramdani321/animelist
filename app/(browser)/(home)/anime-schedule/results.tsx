@@ -2,13 +2,13 @@
 
 import React from "react";
 
-import { Anime } from "@/types/anime-types";
-import AnimeCard from "../_components/anime-card";
 import { Button } from "@/components/ui/button";
+import { AnimeFullProps } from "@/types/anime-types";
+import AnimeCard from "../_components/anime-card";
 
 interface AnimeScheduleResultsProps {
   animes: {
-    data: Anime[];
+    data: AnimeFullProps[];
   };
 }
 

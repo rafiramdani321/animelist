@@ -1,6 +1,7 @@
 import { Suspense } from "react";
-import PageCarousel, { PageCarouselSkeleton } from "./_components/carousel";
+
 import Header from "./_components/header";
+import PageCarousel, { PageCarouselSkeleton } from "./_components/carousel";
 
 const BrowserLayout = ({ children }: { children: React.ReactNode }) => {
   return (

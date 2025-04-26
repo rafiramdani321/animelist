@@ -1,22 +1,13 @@
 "use client";
 
-import { Play } from "lucide-react";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import { Play } from "lucide-react";
+
+import { AnimeFullProps } from "@/types/anime-types";
 
 interface AnimeTrailerProps {
-  data: {
-    youtube_id: string;
-    url: string;
-    embed_url: string;
-    images: {
-      image_url: string;
-      small_image_url: string;
-      medium_image_url: string;
-      large_image_url: string;
-      maximum_image_url: string;
-    };
-  };
+  data: AnimeFullProps["trailer"];
 }
 
 const AnimeTrailer = ({ data }: AnimeTrailerProps) => {

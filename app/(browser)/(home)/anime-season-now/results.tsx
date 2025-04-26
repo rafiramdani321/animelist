@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useMediaQuery } from "usehooks-ts";
+import { cn } from "@/lib/utils";
 
 import {
   Carousel,
@@ -10,13 +11,12 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import AnimeCard, { AnimeCardSkeleton } from "../_components/anime-card";
-import { Anime } from "@/types/anime-types";
+import { AnimeFullProps } from "@/types/anime-types";
 import { Skeleton } from "@/components/ui/skeleton";
-import { cn } from "@/lib/utils";
 
 interface AnimeSeasonNowProps {
   animes: {
-    data: Anime[];
+    data: AnimeFullProps[];
   };
 }
 

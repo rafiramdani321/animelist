@@ -1,15 +1,10 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+
+import { AnimeFullProps } from "@/types/anime-types";
 
 interface BackgroundImageProps {
-  images: {
-    jpg: {
-      large_image_url: string;
-    };
-    webp: {
-      large_image_url: string;
-    };
-  };
+  images: AnimeFullProps["images"];
 }
 
 const BackgroundImage = ({ images }: BackgroundImageProps) => {

@@ -10,11 +10,11 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import AnimeCard from "../_components/anime-card";
-import { Anime } from "@/types/anime-types";
+import { AnimeFullProps } from "@/types/anime-types";
 
 interface AnimeSeasonNowProps {
   animes: {
-    data: Anime[];
+    data: AnimeFullProps[];
   };
 }
 

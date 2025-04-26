@@ -1,10 +1,11 @@
-import { cn } from "@/lib/utils";
-import { useNavbar } from "@/store/use-navbar";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import { ChevronDown } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+
+import { cn } from "@/lib/utils";
+import { useNavbar } from "@/store/use-navbar";
 
 interface NavItems {
   id: string;

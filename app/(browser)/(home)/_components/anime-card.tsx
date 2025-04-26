@@ -1,17 +1,23 @@
 "use client";
 
-import { Skeleton } from "@/components/ui/skeleton";
-import { Anime } from "@/types/anime-types";
-import Image from "next/image";
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+import { Skeleton } from "@/components/ui/skeleton";
+import { AnimeFullProps } from "@/types/anime-types";
+import { generateSlug } from "@/lib/utils";
 
 interface AnimeProps {
-  data: Anime;
+  data: Pick<AnimeFullProps, "mal_id" | "title" | "images">;
 }
 
 const AnimeCard = ({ data }: AnimeProps) => {
   return (
-    <div className="border-transparent overflow-hidden shadow-md shadow-black rounded-sm hover:shadow-secondary">
+    <Link
+      href={`/anime/${generateSlug(data.title)}-${data.mal_id}`}
+      className="border-transparent overflow-hidden shadow-md shadow-black rounded-sm hover:shadow-secondary"
+    >
       <div className="relative rounded-sm w-full aspect-[3/4]">
         <Image
           alt={data.title}
@@ -28,7 +34,7 @@ const AnimeCard = ({ data }: AnimeProps) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

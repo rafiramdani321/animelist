@@ -4,9 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 
-import { AnimeReview } from "@/types/anime-types";
+import { AnimeReviewProps } from "@/types/anime-types";
 
-export const AnimeReviewResults = ({ data }: AnimeReview) => {
+interface AnimeReviewResultsProps {
+  data: Pick<
+    AnimeReviewProps,
+    "mal_id" | "entry" | "review" | "date" | "user"
+  >[];
+}
+
+export const AnimeReviewResults = ({ data }: AnimeReviewResultsProps) => {
   return (
     <div>
       <div className="relative group px-2">
