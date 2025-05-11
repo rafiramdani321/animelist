@@ -6,6 +6,7 @@ interface RecommendationsContentProps {
 }
 
 const RecommendationsContent = ({ data }: RecommendationsContentProps) => {
+  console.log(data);
   return <div>RecommendationsContent</div>;
 };
 

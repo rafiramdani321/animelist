@@ -108,9 +108,9 @@ const CharactersContent = ({ data }: CharactersContentProps) => {
       </div>
       <div className="border border-backgroundSecondary mt-0.5"></div>
       <div className="space-y-10 mt-4">
-        {sortedData.map((item) => (
+        {sortedData.map((item, i) => (
           <>
-            <div className="w-full">
+            <div className="w-full" key={i}>
               <div className="flex items-center self-center gap-x-3">
                 <Image
                   src={item.character.images.webp.image_url}
@@ -133,8 +133,8 @@ const CharactersContent = ({ data }: CharactersContentProps) => {
                 </div>
               </div>
               <div className="w-full grid grid-cols-5 mt-5 gap-y-3">
-                {item.voice_actors.map((subitem) => (
-                  <div className="flex gap-x-1.5">
+                {item.voice_actors.map((subitem, i) => (
+                  <div className="flex gap-x-1.5" key={i}>
                     <div className="w-[55px] h-[85px] relative overflow-hidden shadow-lg shadow-black">
                       <Image
                         src={subitem.person.images.jpg.image_url}

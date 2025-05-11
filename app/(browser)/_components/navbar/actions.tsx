@@ -9,7 +9,6 @@ import DesktopNav from "./desktop-nav";
 import MobileNav from "./mobile-nav";
 
 const Actions = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const { isOpen, onClick } = useNavbar((state) => state);
 
   const navitems = [
@@ -53,7 +52,6 @@ const Actions = () => {
         onClick={onClick}
       >
         <motion.div
-          key={String(isMobileMenuOpen)}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{

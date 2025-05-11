@@ -6,6 +6,7 @@ interface EpisodesContentProps {
 }
 
 const EpisodesContent = ({ data }: EpisodesContentProps) => {
+  console.log(data);
   return <div>EpisodesContent</div>;
 };
 

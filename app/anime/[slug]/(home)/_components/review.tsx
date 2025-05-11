@@ -6,6 +6,7 @@ interface ReviewContentProps {
 }
 
 const ReviewContent = ({ data }: ReviewContentProps) => {
+  console.log(data);
   return <div>ReviewContent</div>;
 };
 
