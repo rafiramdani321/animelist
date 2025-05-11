@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getAnimeFullById } from "@/lib/anime-service";
+import { getAnimeCharacters, getAnimeFullById } from "@/lib/anime-service";
 import DetailsAnime from "./(home)";
 import { generateSlug } from "@/lib/utils";
 import { notFound, redirect } from "next/navigation";
@@ -15,17 +15,24 @@ const PageDetailAnime = async ({ params }: PageProps) => {
 
   if (!id) return notFound();
 
-  const data = await getAnimeFullById(Number(id));
+  const detailAnime = await getAnimeFullById(Number(id));
+  const charactersAnime = await getAnimeCharacters(Number(id));
 
-  if (!data || !data.data || data.status === 404) return notFound();
+  if (!detailAnime || !detailAnime.data || detailAnime.status === 404)
+    return notFound();
 
-  const expectedSlug = `${generateSlug(data.data.title)}-${id}`;
+  const expectedSlug = `${generateSlug(detailAnime.data.title)}-${id}`;
 
   if (expectedSlug !== slug) {
     return redirect(`/anime/${expectedSlug}`);
   }
 
-  return <DetailsAnime />;
+  return (
+    <DetailsAnime
+      detailAnimeContent={detailAnime.data}
+      charactersAnime={charactersAnime.data}
+    />
+  );
 };
 
 export default PageDetailAnime;

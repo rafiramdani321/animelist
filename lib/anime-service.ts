@@ -134,3 +134,15 @@ export async function getAnimeFullById(id: number) {
     return { data: [], pagination: {} };
   }
 }
+
+export async function getAnimeCharacters(id: number) {
+  try {
+    const response = await fetch(`${SITE_URL}/api/anime/${id}/characters`, {
+      cache: "no-store",
+    });
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching anime characters");
+    return { data: [], paginations: {} };
+  }
+}

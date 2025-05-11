@@ -43,7 +43,7 @@ export function AppBreadCrumb() {
           <BreadcrumbLink>
             <Link
               href={"/"}
-              className="text-sm text-primary-foreground hover:text-secondary"
+              className="text-xs text-primary hover:text-secondary"
             >
               Home
             </Link>
@@ -58,14 +58,14 @@ export function AppBreadCrumb() {
           return (
             <React.Fragment key={index}>
               <BreadcrumbSeparator />
-              <BreadcrumbItem className="text-sm">
+              <BreadcrumbItem className="text-xs">
                 {isLast ? (
-                  <span className="text-secondary font-semibold">{name}</span>
+                  <span className="text-primary-foreground">{name}</span>
                 ) : (
                   <BreadcrumbLink asChild>
                     <Link
                       href={href}
-                      className="text-primary-foreground hover:text-secondary"
+                      className="text-primary hover:text-secondary"
                     >
                       {name}
                     </Link>

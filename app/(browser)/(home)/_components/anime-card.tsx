@@ -7,14 +7,17 @@ import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AnimeFullProps } from "@/types/anime-types";
 import { generateSlug } from "@/lib/utils";
+import { useTabDetailsAnime } from "@/store/use-tab-detailanime";
 
 interface AnimeProps {
   data: Pick<AnimeFullProps, "mal_id" | "title" | "images">;
 }
 
 const AnimeCard = ({ data }: AnimeProps) => {
+  const { setActiveTab } = useTabDetailsAnime();
   return (
     <Link
+      onClick={() => setActiveTab("details")}
       href={`/anime/${generateSlug(data.title)}-${data.mal_id}`}
       className="border-transparent overflow-hidden shadow-md shadow-black rounded-sm hover:shadow-secondary"
     >
